@@ -1,0 +1,71 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <br><br>
+            <h3>Edit Listings</h3>
+    <form action="/listing/edit/<%= details._id %>?_method=PUT" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input name = "title" type="text" value="<%=details.title%>" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" cols="30" class="form-control" required><%=details.description%></textarea>
+            <div class="invalid-feedback">Please enter a short description</div>
+        </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Select Hotel Category</label>
+          <select class="form-select" id="category" name="category" required>
+            <option value="" disabled selected>Select a category</option>
+            <option value="budget">Budget</option>
+            <option value="standard">Standard</option>
+            <option value="deluxe">Deluxe</option>
+            <option value="luxury">Luxury</option>
+            <option value="boutique">Boutique</option>
+            <option value="resort">Resort</option>
+            <option value="business">Business</option>
+            <option value="heritage">Heritage</option>
+            <option value="homestay">Homestay</option>
+            <option value="hostel">Hostel</option>
+            <option value="eco-friendly">Eco-Friendly</option>
+            <option value="airport hotel">Airport Hotel</option>
+            <option value="bed & breakfast">Bed & Breakfast</option>
+            <option value="serviced apartment">Serviced Apartment</option>
+            <option value="capsule hotel">Capsule Hotel</option>
+            <option value="treehouse">Treehouse</option>
+            <option value="villa">Villa</option>
+            <option value="motel">Motel</option>
+            <option value="palace hotel">Palace Hotel</option>
+            <option value="wellness retreat">Wellness Retreat</option>
+          </select>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload Image</label>
+            <input name = "image" type="file" class="form-control">
+        </div>
+        <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input name = "price" type="number" value="<%=details.price%>" class="form-control" required>
+                    <div class="invalid-feedback">Price should be valid</div>
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input name = "country" type="country" value="<%=details.country%>" class="form-control" required>
+                    <div class="invalid-feedback">Country Name should be valid</div>
+                </div>
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input name = "location" type="location" value="<%=details.location%>" class="form-control" required>
+            <div class="invalid-feedback">Location should be valid</div>
+        </div>
+        <br><br>
+        <button class="btn edit-btn" type="submit">Edit</button>
+        <br><br>
+    </form>
+        </div>
+    </div>
+    
+</body>

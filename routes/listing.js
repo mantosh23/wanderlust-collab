@@ -73,10 +73,11 @@ router.put(
   upload.single("image"),
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    let { title, description, price, location, country } = req.body;
+    let { title, description,category, price, location, country } = req.body;
     let listing = await Listing.findByIdAndUpdate(id, {
       title: title,
       description: description,
+      category : category,
       price: price,
       location: location,
       country: country,
